@@ -44,15 +44,17 @@ $(function () {
     $.ajax({
       method: 'POST',
       url: '/api/login',
-      data: $(this).serialize()
-    }),
-      success: function(res) {
+      data: $(this).serialize(),
+      success: function (res) {
         if (res.status !== 0) {
           return layer.msg('登录失败')
         }
         layer.msg('登录成功')
-        location.href = 'index.html'
+        console.log(res.token);
+        // 将登录成功得到的token字符存储到localStorage中
+        localStorage.setItem('token', res.token)
+        location.href = '/index.html'
       }
+    })
   })
-
 })
