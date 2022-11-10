@@ -3,7 +3,7 @@ $(function () {
     getUserInfo()
     var layer = layui.layer
     // 点击退出实现退出功能 跳转回登录页面
-    $('#btnLoginOut').on('click', function () {
+    $('#btnLoginout').on('click', function () {
         layer.confirm('确认退出吗？亲', { icon: 3, title: '提示' }, function (index) {
             localStorage.removeItem('token')
             location.href = '/login.html'
@@ -23,9 +23,7 @@ function getUserInfo() {
                 return layui.layer.msg('获取用户信息失败')
             }
             renderAvatar(res.data)
-        },
-       
-
+        }
     })
 }
 // 设置renderAvatar()用户头像
